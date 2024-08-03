@@ -1,0 +1,10 @@
+<p>Список пользователей в хранилище</p>
+
+<ul id="navigation">
+	{% for user in users %}
+		<li class='users'>
+            <a href="/user/show/?id={{ user.getUserId() }}">{{ user.getUserName() }} {{ user.getUserLastName() }}</a>
+		</li>
+	{% endfor %}
+
+</ul>
