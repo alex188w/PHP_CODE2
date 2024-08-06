@@ -1,0 +1,11 @@
+<p>Список пользователей в хранилище</p>
+
+<button class="add"><a href="/user/edit">Добавить пользователя</a></button>
+<ul id="navigation">
+	{% for user in users %}
+		<li class='users'>
+            <a href="/user/show/?id={{ user.getUserId() }}">{{ user.getUserName() }} {{ user.getUserLastName() }}</a>
+		</li>
+	{% endfor %}
+
+</ul>
