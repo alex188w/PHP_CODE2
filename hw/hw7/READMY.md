@@ -32,11 +32,11 @@
     PRIMARY KEY (`id_user_role`))
     ENGINE = InnoDB AUTO_INCREMENT=1 DEFAULT CHARACTER SET = latin1;
 
-![img1](./img/1.jpg)
+![img1](./img/1.JPG)
 
-![img1](./img/2.jpg)
+![img1](./img/2.JPG)
 
-![img1](./img/3.jpg)
+![img1](./img/3.JPG)
 
 1. При помощи регулярных выражений усильте проверку данных в validateRequestData так, чтобы пользователь не смог передать на обработку любую строку, содержащую HTML-теги (например <>)
 
