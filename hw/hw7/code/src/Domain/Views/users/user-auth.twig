@@ -2,17 +2,15 @@
   {{ auth-error }}
 {% endif %}
 
-
-<form action="/user/login/" method="post">
-  <input id="csrf_token" type="hidden" name="csrf_token" value="{{ csrf_token }}">
-  <p>
-    <label for="user-login">Логин:</label>
-    <input id="user-login" type="text" name="login">
-  </p>
-  <p>
-    <label for="user-password">Пароль:</label>
-    <input id="user-password" type="password" name="password">
-
-  </p>
-  <p><input type="submit" value="Войти"></p>
-</form>
+<div class="form_auth_block">
+  <div class="form_auth_block_content">
+    <p class="form_auth_block_head_text">Авторизация</p>
+    <form class="form_auth_style" action="/user/login/" method="post">
+      <label for="user-login">Введите Ваш Логин</label>
+      <input id="user-login" type="text" name="login" placeholder="Логин" required >
+      <label for="user-password">Введите Ваш пароль</label>
+      <input id="user-password" type="password" name="password" placeholder="Пароль" required >
+      <button class="form_auth_button" type="submit" name="form_auth_submit" value="Войти">Войти</button>
+    </form>
+  </div>
+</div>

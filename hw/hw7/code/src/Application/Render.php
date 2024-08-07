@@ -27,6 +27,7 @@ class Render
         $templateVariables['header'] = 'header.twig';
         $templateVariables['nav'] = 'navigation.twig';
         $templateVariables['footer'] = 'footer.twig';
+        $templateVariables['auth'] = 'users/user-auth.twig';
         $templateVariables['content_template_name'] = $contentTemplateName;
 
         if(isset($_SESSION['auth']['user_name'])){

@@ -32,7 +32,7 @@ p {
     background-color: #d3d3d3;
 }
 
-.navigation a {
+a {
     text-decoration: none;
 }
 
@@ -46,17 +46,70 @@ ul {
     gap: 15px;
 }
 
+li {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
 .footer {
     display: flex;
     background-color: gray;
     height: 48px;
     justify-content: center;
     align-items: center;
+
+}
+
+.add {
+    display: inline-flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 4px;
+    background: #1A3E3E;
+}
+
+.add-link {
+    color: #fdfdfd;
+    font-size: 16px;
 }
 
 .content {
     padding: 32px;
 }
+
+.user {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+}
+
+.user-update {
+    display: inline-flex;    
+    justify-content: center;
+    align-items: center;   
+    border: none;
+    border-radius: 4px;
+    background-color: none;
+    background: #76c0c0;
+}
+
+.user-del {
+    display: inline-flex;    
+    justify-content: center;
+    align-items: center;   
+    border: none;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+    background: #ef5679;
+}
+
+.user-link {
+    color: #fdfdfd;
+}
+
 
 #notfound {
     position: relative;
@@ -98,6 +151,66 @@ ul {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.form_auth_block{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    /* background: url(http://www.dailycompass.org/wp-content/uploads/2013/01/Bubbles.jpg); */
+    background: #76c0c0;
+    background-size: cover;
+    border-radius: 4px;
+}
+/* .form_auth_block_content{
+  padding-top: 15%;
+} */
+.form_auth_block_head_text{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #ffffff;
+    opacity: 0.7;
+}
+.form_auth_block label{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #ffffff;
+    opacity: 0.7;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form_auth_block input{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 35px;
+  border-radius: 10px;  
+  border:none;
+  outline: none;
+}
+input:focus {
+  color: #000000;
+  border-radius: 10px;
+  border: 2px solid #436fea;
+}
+.form_auth_button{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+}
+::-webkit-input-placeholder {color:#3f3f44; padding-left: 10px;} 
+::-moz-placeholder          {color:#3f3f44; padding-left: 10px;} 
+:-moz-placeholder           {color:#3f3f44; padding-left: 10px;} 
+:-ms-input-placeholder      {color:#3f3f44; padding-left: 10px;} 
 
 @media only screen and (max-width: 767px) {
     .notfound .notfound-error h1 {

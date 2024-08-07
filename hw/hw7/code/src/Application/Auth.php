@@ -9,19 +9,6 @@ class Auth {
         return password_hash($_GET['pass_string'], PASSWORD_BCRYPT);
     }
 
-    // public function restoreSession(): void{
-    //     if(isset($_COOKIE['auth_token']) && !isset($_SESSION['auth']['user_name'])){
-    //         $userData = User::verifyToken($_COOKIE['auth_token']);
-
-
-    //         if(!empty($userData)){
-    //             $_SESSION['auth']['user_name'] = $userData['user_name'];
-    //             $_SESSION['auth']['user_lastname'] = $userData['user_lastname'];
-    //             $_SESSION['auth']['id_user'] = $userData['id_user'];
-    //         }
-    //     }
-    // }
-
     public function generateToken(int $userId): string {
         $bytes = random_bytes(16);
         return bin2hex($bytes);

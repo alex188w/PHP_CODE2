@@ -84,8 +84,6 @@ class Application {
     private function checkAccessToMethod(AbstractController $controllerInstance, string $methodName): bool {
         $userRoles = $controllerInstance->getUserRoles();
 
-
-
         $rules = $controllerInstance->getActionsPermissions($methodName);
 
         $rules[] = 'user';
@@ -100,8 +98,6 @@ class Application {
                 }
             }
         }
-
         return $isAllowed;
-
     }
 }

@@ -2,17 +2,26 @@
 <html>
 	<head>
 		<title>{{ title }}</title>
-		<link rel="stylesheet" href="http://mysite.local/css/style_hw7.css"/>
+		<link rel="stylesheet" type="text/css" href="http://mysite.local/css/style_hw22.css"/>
 	</head>
 	<body>
-		{% include header %}
-		<div id="header"></div>
-		<div class="main">
-			{% include nav %}
+		{% if not user_authorized %}
+			{% include header %}
+			<div id="header"></div>
 			<div class="content">
 				{% include content_template_name %}
 			</div>
-		</div>
-		{% include footer %}
+			{% include footer %}
+		{% else %}
+			{% include header %}
+			<div id="header"></div>
+			<div class="main">
+				{% include nav %}
+				<div class="content">
+					{% include content_template_name %}
+				</div>
+			</div>
+			{% include footer %}
+		{% endif %}
 	</body>
 </html>

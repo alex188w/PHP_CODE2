@@ -1,10 +1,19 @@
+<button class="add">
+	<a class="add-link" href="/user/edit">Добавить пользователя</a>
+</button>
 <p>Список пользователей в хранилище</p>
-
-<button class="add"><a href="/user/edit">Добавить пользователя</a></button>
 <ul id="navigation">
 	{% for user in users %}
-		<li class='users'>
-            <a href="/user/show/?id={{ user.getUserId() }}">{{ user.getUserName() }} {{ user.getUserLastName() }}</a>
+		<li>
+			<a class='user' href="/user/show/?id={{ user.getUserId() }}">{{ user.getUserName() }}
+				{{ user.getUserLastName() }}</a>
+			<button class='user-update' >
+				<a class="user-link" href="/user/edit/?user_id={{user.userId}}">Править</a>
+			</button>
+			<button class='user-del'>
+				<a class="user-link" href="/user/delete/?user_id={{user.userId}}">Удалить</a>
+			</button>
+
 		</li>
 	{% endfor %}
 
