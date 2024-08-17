@@ -1,0 +1,15 @@
+<div class="form_auth_block">
+	<div class="form_auth_block_content">
+		<p class="form_auth_block_head_text">Авторизация</p>
+		<form class="form_auth_style" action="/user/login/" method="post">
+			<label for="user-login">Введите Ваш Логин</label>
+			<input id="user-login" type="text" name="login" placeholder="Логин" required>
+			<label for="user-password">Введите Ваш пароль</label>
+			<input id="user-password" type="password" name="password" placeholder="Пароль" required>
+			<button class="form_auth_button" type="submit" name="form_auth_submit" value="Войти">Войти</button>
+		</form>
+		{% if not auth_success %}
+			<p class="form_auth_block_head_text error">{{ auth_error }}</p>
+		{% endif %}
+	</div>
+</div>

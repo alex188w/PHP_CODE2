@@ -1,0 +1,1 @@
+[2024-08-10T12:37:45.666260+00:00] application_logger.ERROR: Метод actionSome не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/some [] []

@@ -10,11 +10,13 @@ use Geekbrains\Application1\Domain\Models\User;
 class UserController extends AbstractController
 {
     protected array $actionsPermissions = [
-        'actionHash' => ['admin'],
+        'actionHash' => ['admin', 'some'],
+        'actionIndex' => ['admin', 'some'],
+        'actionLogout' => ['admin', 'some'],
         'actionSave' => ['admin'],
         'actionEdit' => ['admin'],
-        'actionIndex' => ['admin'],
-        'actionLogout' => ['admin'],
+        'actionShow' => ['admin'],        
+        'actionDellete' => ['admin']
     ];
 
     public function actionIndex(): string
@@ -31,7 +33,7 @@ class UserController extends AbstractController
                 ]
             );
         } else {
-            return $render->renderPage(
+            return $render->renderPageWithForm(
                 'pages/user-index.twig',
                 [
                     'title' => 'Список пользователей в хранилище',
@@ -65,23 +67,22 @@ class UserController extends AbstractController
     {
         $render = new Render();
         $action = '/user/save';
-        if(isset($_GET['user_id'])){
+        if (isset($_GET['user_id'])) {
             $userId = $_GET['user_id'];
             $action = '/user/update';
             $userData = User::getUserFromStorageById($userId);
         }
-
-        return $render->renderPage(
+        return $render->renderPageWithForm(
             'users/user-form.twig',
             [
-                'title' => 'Форма создания пользователя',
+                'title' => 'Форма создания/редактирования пользователя',
                 // 'user_data' => $userData ?? [],
                 'action' => $action,
-                'id_user' => $userData?->getUserId() ?? '',
-                'user_login' => $userData?->getUserLogin() ?? '',
+                'id_user' => $userData?->getUserId() ?? '',            
                 'user_name' => $userData?->getUserName() ?? '',
                 'user_lastname' => $userData?->getUserLastName() ?? '',
                 'user_birthday' => $userData?->getUserBirthday() ?? '',
+                'user_login' => $userData?->getUserLogin() ?? ''
             ]
         );
     }
@@ -112,13 +113,20 @@ class UserController extends AbstractController
         }
 
         if (!$result) {
+            if ($_POST['login'] == "") {
+                $messege_err = "Ошибка. Заполните поле логин!";
+            } elseif ($_POST['password'] == "1") {
+                $messege_err = "Ошибка. Заполните поле пароль!";
+            } else {
+                $messege_err = "Ошибка. Введены некорректные логин-пароль!";
+            }
             $render = new Render();
             return $render->renderPageWithForm(
                 'users/user-auth.twig',
                 [
                     'title' => 'Форма логина',
-                    'auth-success' => false,
-                    'auth-error' => 'Неверные логин или пароль'
+                    'auth_success' => false,
+                    'auth_error' => $messege_err
                 ]
             );
         } else {
@@ -135,9 +143,9 @@ class UserController extends AbstractController
         die();
     }
 
-    function actionShow()
+    public function actionShow(): string
     {
-        $id = $_POST['user_id'];
+        $id = $_GET['user_id'];       
         if (User::exists($id)) {
             $user = User::getUserFromStorageById($id);
             $render = new Render();
@@ -147,15 +155,16 @@ class UserController extends AbstractController
                     'title' => 'Информация о пользователе',
                     'message' => 'Информация о выбранном пользователе: ' . $user
                 ]
-            );
+            );            
         } else {
             throw new \Exception("Пользователь не существует");
-        }
+        }        
     }
 
     public function actionUpdate(): string
     {
         $id = $_POST['user_id'];
+        echo "id = ", $id;
         if (User::exists($id)) {
             $user = User::getUserFromStorageById($id);
             $user->setUserId($id);
@@ -189,7 +198,7 @@ class UserController extends AbstractController
     public function actionDelete(): string
     {
         $id = $_GET['user_id'];
-        if (User::exists($id)) {            
+        if (User::exists($id)) {
             $user = User::getUserFromStorageById($id);
             User::deleteFromStorage($id);
 
@@ -197,7 +206,7 @@ class UserController extends AbstractController
             return $render->renderPageWithForm(
                 'users/user-info.twig',
                 [
-                    'title' => 'Удаление пользоателя',
+                    'title' => 'Удаление пользователя',
                     'message' => "Пользователь: " .  $user . " - удален из хранилища"
                 ]
             );

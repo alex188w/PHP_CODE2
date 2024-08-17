@@ -1,0 +1,6 @@
+{# <p>Наше первое приложение!</p> #}
+{% if not user_authorized %}
+    <p><a href="/user/auth/">Вход в систему</a></p>
+{% else %}
+    <p>Добро пожаловать на сайт, {{ name }} {{ lastname }}!</p>
+{% endif %}

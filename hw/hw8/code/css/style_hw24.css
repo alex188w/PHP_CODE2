@@ -1,0 +1,248 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+* {
+    font-family: Roboto, sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    color: #00f;
+}
+
+.header {
+    display: flex;
+    background-color: gray;
+    height: 48px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation {
+    padding: 32px 32px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #d3d3d3;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.footer {
+    display: flex;
+    background-color: gray;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add {
+    display: inline-flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 4px;
+    background: #1A3E3E;
+}
+
+.add-link {
+    color: #fdfdfd;
+    font-size: 16px;
+}
+
+.content {
+    padding: 32px;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+}
+
+.user-update {
+    display: inline-flex;    
+    justify-content: center;
+    align-items: center;   
+    border: none;
+    border-radius: 4px;
+    background-color: none;
+    background: #76c0c0;
+}
+
+.user-del {
+    display: inline-flex;    
+    justify-content: center;
+    align-items: center;   
+    border: none;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+    background: #ef5679;
+}
+
+.user-link {
+    color: #fdfdfd;
+}
+
+
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 520px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.notfound .notfound-error {
+    position: relative;
+    height: 200px;
+    margin: 0px auto 20px;
+    z-index: -1;
+}
+
+.notfound .notfound-error h1 {
+    font-size: 200px;
+    font-weight: 300;
+    margin: 0px;
+    color: #211b19;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.form_auth_block{
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    /* background: url(http://www.dailycompass.org/wp-content/uploads/2013/01/Bubbles.jpg); */
+    background: #76c0c0;
+    background-size: cover;
+    border-radius: 4px;
+}
+/* .form_auth_block_content{
+  padding-top: 15%;
+} */
+.form_auth_block_head_text{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #ffffff;
+    opacity: 0.7;
+}
+
+.error {
+    color: red;
+}
+.form_auth_block label{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #ffffff;
+    opacity: 0.7;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form_auth_block input{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 35px;
+  border-radius: 10px;  
+  border:none;
+  outline: none;
+}
+input:focus {
+  color: #000000;
+  border-radius: 10px;
+  border: 2px solid #436fea;
+}
+.form_auth_button{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+}
+::-webkit-input-placeholder {color:#3f3f44; padding-left: 10px;} 
+::-moz-placeholder          {color:#3f3f44; padding-left: 10px;} 
+:-moz-placeholder           {color:#3f3f44; padding-left: 10px;} 
+:-ms-input-placeholder      {color:#3f3f44; padding-left: 10px;} 
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-error h1 {
+        font-size: 148px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .notfound .notfound-error {
+        height: 148px;
+        margin: 0px auto 10px;
+    }
+
+    .notfound .notfound-error h1 {
+        font-size: 120px;
+        font-weight: 200px;
+    }
+
+    .notfound .notfound-error h2 {
+        font-size: 30px;
+    }
+
+    .notfound a {
+        padding: 7px 15px;
+        font-size: 24px;
+    }
+
+    .h2 {
+        font-size: 148px;
+    }
+}

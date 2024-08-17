@@ -1,0 +1,8 @@
+[2024-08-15T15:15:01.393472+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=17 [] []
+[2024-08-15T15:15:14.281646+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=1 [] []
+[2024-08-15T15:15:43.877284+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=18 [] []
+[2024-08-15T15:17:05.227662+00:00] application_logger.ERROR: Метод actionDelete не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/delete/?user_id=21 [] []
+[2024-08-15T15:17:09.643586+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=17 [] []
+[2024-08-15T15:17:15.891058+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=17 [] []
+[2024-08-15T15:17:20.589235+00:00] application_logger.ERROR: Метод actionDelete не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/delete/?user_id=21 [] []
+[2024-08-15T15:17:27.400376+00:00] application_logger.ERROR: Метод actionShow не существует в контроллере Geekbrains\Application1\Domain\Controllers\UserController | Попытка вызова адреса /user/show/?id=17 [] []

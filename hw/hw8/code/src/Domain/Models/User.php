@@ -10,25 +10,27 @@ class User
 
     private ?int $idUser;
     private ?string $userName;
-
     private ?string $userLastName;
     private ?int $userBirthday;
     private ?string $login;
+    private ?string $password;
 
     // private static string $storageAddress = '/storage/birthdays.txt';
 
     public function __construct(
         int $idUser = null,
-        string $login = null,
         string $name = null,
         string $lastName = null,
-        int $birthday = null
+        int $birthday = null,
+        string $login = null,
+        string $password = null
     ) {
         $this->idUser = $idUser;
-        $this->login = $login;
         $this->userName = $name;
         $this->userLastName = $lastName;
         $this->userBirthday = $birthday;
+        $this->login = $login;
+        $this->password = $password;
     }
 
     public function getUserId(): ?int
@@ -92,7 +94,7 @@ class User
         $users = [];
 
         foreach ($result as $item) {
-            $user = new User($item['id_user'], $item['login'], $item['user_name'], $item['user_lastname'], $item['user_birthday_timestamp']);
+            $user = new User($item['id_user'], $item['user_name'], $item['user_lastname'], $item['user_birthday_timestamp'], $item['login']);
             $users[] = $user;
         }
 
@@ -106,7 +108,9 @@ class User
         if (!(
             isset($_POST['name']) && !empty($_POST['name']) &&
             isset($_POST['lastname']) && !empty($_POST['lastname']) &&
-            isset($_POST['birthday']) && !empty($_POST['birthday'])
+            isset($_POST['birthday']) && !empty($_POST['birthday']) &&
+            isset($_POST['login']) && !empty($_POST['login']) &&
+            isset($_POST['password']) && !empty($_POST['password'])
         )) {
             $result = false;
         }
@@ -119,9 +123,9 @@ class User
             $result =  false;
         }
 
-        // if (!isset($_SESSION['csrf_token']) || $_SESSION['csrf_token'] != $_POST['csrf_token']) {
-        //     $result = false;
-        // }
+        if (!isset($_SESSION['csrf_token']) || $_SESSION['csrf_token'] != $_POST['csrf_token']) {
+            $result = false;
+        }
 
         return $result;
     }
@@ -173,11 +177,12 @@ class User
         $result = $handler->fetch();
 
         return new User(
-            $result['id_user'],
-            $result['login'],
+            $result['id_user'],           
             $result['user_name'],
             $result['user_lastname'],
-            $result['user_birthday_timestamp']
+            $result['user_birthday_timestamp'],
+            $result['login']
+            // $result['password']
         );
     }
 

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  phpcode2:
+    image: phpcode2
+    build:
+      context: .
+      dockerfile: ./Dockerfile

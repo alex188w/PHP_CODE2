@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<link rel="stylesheet" type="text/css" href="http://mysite.local/css/style_hw24.css"/>
+	</head>
+	<body>
+		{% if not user_authorized %}
+			{% include header %}
+			<div id="header"></div>
+			<div class="content">
+				{% include content_template_name %}
+			</div>
+			{% include footer %}
+		{% else %}
+			{% include header %}
+			<div id="header"></div>
+			<div class="main">
+				{% include nav %}
+				<div class="content">
+					{% include content_template_name %}
+				</div>
+			</div>
+			{% include footer %}
+		{% endif %}
+	</body>
+</html>
