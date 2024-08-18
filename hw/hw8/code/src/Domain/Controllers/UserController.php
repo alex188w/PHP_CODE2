@@ -115,7 +115,7 @@ class UserController extends AbstractController
         if (!$result) {
             if ($_POST['login'] == "") {
                 $messege_err = "Ошибка. Заполните поле логин!";
-            } elseif ($_POST['password'] == "0") {
+            } elseif ($_POST['password'] == "") {
                 $messege_err = "Ошибка. Заполните поле пароль!";
             } else {
                 $messege_err = "Ошибка. Введены некорректные логин-пароль!";
